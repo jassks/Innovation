@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     backgroundColor: 'blue',
     color: 'black',
+    borderColor: 'black',
   },
   screen: {
     flex: 1,

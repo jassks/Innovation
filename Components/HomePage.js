@@ -14,8 +14,8 @@ export default class HomePage extends React.Component{
             <View style={styles.screen}>
                 <Button 
                     style={styles.button} 
-                    title="Create Student" 
-                    onPress={() => navigation.navigate('CreateStudent')}/>
+                    title="Tilføj Survey" 
+                    onPress={() => navigation.navigate('AddSurvey')}/>
             </View>
         );
     };

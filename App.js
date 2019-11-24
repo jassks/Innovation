@@ -5,8 +5,9 @@ import firebase from 'firebase';
 import LoginForm from './Components/LoginForm';
 import SignUpFrom from './Components/SignUpForm';
 import HomePage from './Components/HomePage';
-import CreateStudent from './Components/CreateStudent';
+import AddSurvey from './Components/AddSurvey';
 import MyProfile from './Components/MyProfile';
+import MySurveys from './Components/MySurveys';
 
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -16,7 +17,9 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 const stackNavigator = createStackNavigator (
   {
     HomePage: { screen: HomePage},
-    CreateStudent: { screen: CreateStudent}
+    AddSurvey: { screen: AddSurvey},
+    MySurveys: { screen: MySurveys},
+    MyProfile: { screen: MyProfile}
   },
   {
     initialRouteName: 'HomePage',
@@ -77,18 +80,13 @@ export default class App extends React.Component {
   renderLoginSignup = () => {
     const {user} = this.state;
 
-    const {navigation} = this.props;
-
     if (user) {
       return null;
     }
     return (
       <ScrollView>
         <LoginForm/>
-        <Button 
-                    style={styles.button} 
-                    title="Sign Up Here" 
-                    onPress={() => navigation.navigate('SignUpForm')}/>
+        <SignUpFrom/>
       </ScrollView>
     );
   };

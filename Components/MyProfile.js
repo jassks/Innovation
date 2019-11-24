@@ -1,36 +1,29 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
 import firebase from 'firebase';
+import styles from '../styles';
 
 export default class MyProfile extends React.Component {
     static navigationOptions = {
         title: 'My Profile',
     };
 
-    state = {
-        user: null,
-    }
-
-    componentDidMount = () => {
-        const user = firebase.auth().currentUser;
-        this.setState({user});
-    };
-
-    handleLogOut = async () => {
-        await firebase.auth().signOut();
-    };
+    
 
     render() {
-        const {user} = this.state;
+        
+        const {navigation} = this.props;
 
-        if(!user){
-            return null;
-        }
+        
 
         return (
-            <View>
-                <Text> Current user: {user.email} </Text>
-                <Button onPress={this.handleLogOut} title="Log out" />
+            <View style={styles.screen}>
+                
+                <Button 
+                    style={styles.button} 
+                    title="Se mine Surveys" 
+                    onPress={() => navigation.navigate('MySurveys')}/>
+               
             </View>
         );
     }
